@@ -1,0 +1,42 @@
+/* ===== Register Form ===== */
+.register-form .register-input,
+.register-form .register-label {
+  border: 1px solid #2563eb; /* Blue for register */
+}
+
+/* Register Button */
+.register-btn {
+  background: #2563eb;
+  color: white;
+}
+.register-btn:hover {
+  background: #1e40af;
+}
+
+/* ===== User Login Form ===== */
+.user-form .login-input {
+  border: 1px solid #16a34a; /* Green for login */
+}
+
+/* User Button */
+.user-btn {
+  background: #16a34a;
+  color: white;
+}
+.user-btn:hover {
+  background: #166534;
+}
+
+/* ===== Admin Login Form ===== */
+.admin-form .admin-input {
+  border: 1px solid #dc2626; /* Red for admin */
+}
+
+/* Admin Button */
+.admin-btn {
+  background: #dc2626;
+  color: white;
+}
+.admin-btn:hover {
+  background: #991b1b;
+}

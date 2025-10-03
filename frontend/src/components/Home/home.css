@@ -1,0 +1,194 @@
+.hero {
+  min-height: 80vh;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+}
+
+.hero h6 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  letter-spacing: 1px;
+}
+
+.hero .title h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #184235;
+  margin: 0;
+}
+
+.hero .subtitle h4 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #2d5649;
+}
+
+.hero p {
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 10px auto 0 auto;
+  color: #444;
+}
+
+@media screen and (max-width: 768px) {
+  .hero {
+    width: 95%;
+  }
+  .hero .title h1 {
+    font-size: 32px;
+  }
+  .hero .subtitle h4 {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    width: 100%;
+    padding: 20px 10px;
+  }
+  .hero p {
+    font-size: 14px;
+  }
+}
+
+/* ================= HOW IT WORKS ================= */
+.howitworks .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.howitworks .container h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #184235;
+  text-align: center;
+}
+
+.howitworks .banner {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.howitworks .card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  flex: 1;
+  min-width: 300px;
+  max-width: 350px;
+  height: 350px;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.howitworks .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.howitworks .card:nth-child(2) {
+  background: #184235;
+  color: #fff;
+}
+
+.howitworks .card svg {
+  font-size: 40px;
+  color: #2d5649;
+  margin: 0 auto;      /* ✅ centers the icon */
+  display: block;      /* ✅ ensures margin works */
+}
+
+.howitworks .card:nth-child(2) svg {
+  color: #f1f3f6;
+}
+
+.howitworks .card p:first-of-type {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.howitworks .card p:last-of-type {
+  font-size: 14px;
+  color: #777;
+}
+
+.howitworks .card:nth-child(2) p:last-of-type {
+  color: #ddd;
+}
+
+@media (max-width: 850px) {
+  .howitworks .banner {
+    justify-content: center;
+  }
+}
+
+
+
+/* ================= MISSION & VISION ================= */
+.mcontainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+}
+
+.mcontainer h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #184235;
+}
+
+.mcontainer p {
+  text-align: center;
+  line-height: 1.6;
+  color: #444;
+}
+
+.mission, .vision {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 25px;
+  height: 250px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.mission:hover, .vision:hover {
+  transform: translateY(-8px);
+}
+
+@media screen and (max-width: 768px) {
+  .mcontainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  .mission, .vision {
+    width: 100%;
+  }
+}
