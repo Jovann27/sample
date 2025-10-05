@@ -112,6 +112,24 @@
   font-size: 14px;
 }
 
+.top-left .page-title {
+  margin: 0;
+  font-size: 20px;
+  color: #111827;
+}
+
+.top-left .page-sub {
+  margin: 0;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
 .top-icons {
   display: flex;
   gap: 20px;
@@ -124,6 +142,125 @@
   flex: 1;
   padding: 30px;
   background: #f8f9fc;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: linear-gradient(180deg,#ffffff,#fbfdff);
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+.stat-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #374151;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+}
+
+.stat-sub {
+  margin: 6px 0 0 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 22px;
+}
+
+.left-col, .right-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(15,23,42,0.06);
+}
+
+.chart-placeholder {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fbfdff, #f7fbff);
+  margin-top: 12px;
+}
+
+.chart-area {
+  margin-top: 12px;
+  height: 260px;
+}
+
+.chart-area canvas {
+  height: 100% !important;
+}
+
+.chart-area.small {
+  height: 180px;
+}
+
+.recent-list, .activity-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.recent-list li, .activity-list li {
+  padding: 10px 0;
+  border-bottom: 1px dashed #eef2f7;
+  color: #374151;
+}
+
+.recent-list li:last-child, .activity-list li:last-child {
+  border-bottom: none;
+}
+
+.small-card .actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1000px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .dashboard-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .sidebar { display: none; }
+  .top-navbar { padding: 12px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .search-bar { max-width: 160px; }
 }
 
 

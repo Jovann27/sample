@@ -32,11 +32,46 @@ export const createJobFair = async (req, res) => {
 // Get all service requests
 export const adminGetAllServiceRequests = async (req, res) => {
   try {
-    const requests = await ServiceRequest.find()
-      .populate("user", "username email role")
-      .sort({ createdAt: -1 });
+    const { skill, status, sort } = req.query;
 
-    res.json({ success: true, count: requests.length, requests });
+  let filter = {};
+    if (skill) {
+      // build a case-insensitive regex for partial matching
+      const regex = new RegExp(skill, 'i');
+
+      // find users who list the skill
+      const usersWithSkill = await User.find({ skills: skill }).select("_id");
+      const userIds = usersWithSkill.map(u => u._id);
+
+      const orClauses = [{ serviceType: regex }, { description: regex }];
+      if (userIds.length) orClauses.push({ user: { $in: userIds } });
+
+      filter = { $or: orClauses };
+    }
+
+    if (status) {
+      filter.status = status;
+    }
+
+    // pagination
+    const page = Math.max(1, parseInt(req.query.page) || 1);
+    const limit = Math.max(1, Math.min(100, parseInt(req.query.limit) || 10));
+    const skip = (page - 1) * limit;
+
+    const total = await ServiceRequest.countDocuments(filter);
+    let sortObj = { createdAt: -1 };
+    if (sort) {
+      const [f, order] = sort.split(":");
+      sortObj = { [f]: order === 'asc' ? 1 : -1 };
+    }
+
+    const requests = await ServiceRequest.find(filter)
+      .populate("user", "username email role")
+      .sort(sortObj)
+      .skip(skip)
+      .limit(limit);
+
+    res.json({ success: true, total, page, totalPages: Math.ceil(total / limit), count: requests.length, requests });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: err.message });

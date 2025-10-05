@@ -20,10 +20,7 @@ const Login = () => {
       setUser(storedUser);
       setIsAuthorized(true);
       setTokenType(type);
-      if (window.location.pathname !== "/login") {
-        if (type === "admin") navigate("/admin/dashboard");
-        else navigate("/");
-      }
+      navigate("/");
     }
   }, [navigate, setUser, setIsAuthorized, setTokenType]);
 

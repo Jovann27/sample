@@ -42,12 +42,20 @@ export const register = catchAsyncError(async (req, res, next) => {
     for (const file of filesArray) certificatePaths.push(await uploadToCloudinary(file.tempFilePath, "skillconnect/certificates"));
   }
 
+  // Normalize skills if provided
+  let normalizedSkills = [];
+  if (req.body.skills) {
+    const incoming = Array.isArray(req.body.skills) ? req.body.skills : (typeof req.body.skills === 'string' ? req.body.skills.split(',') : []);
+    normalizedSkills = incoming.map(s => s.toString().trim().toLowerCase()).filter(Boolean);
+  }
+
   const user = await User.create({
     username, firstName, lastName, email, phone, address, birthdate, employed,
     password, role,
     validId: uploadedFiles.validId,
     profilePic: uploadedFiles.profilePic || "",
     certificates: certificatePaths,
+    skills: normalizedSkills,
   });
 
   sendToken(user, 201, res, "User registered successfully");

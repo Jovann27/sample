@@ -13,7 +13,7 @@
         toast.success("Order placed successfully!");
         setService("");
         setDetails("");
-      } catch (err) {
+      } catch {
         toast.error("Failed to place order");
       }
     };

@@ -25,14 +25,14 @@ const UserDashboard = () => {
           withCredentials: true,
         });
         setUser(data.user);
-      } catch (error) {
+      } catch {
         navigate("/home");
-        console.error("Failed to fetch user data:", error);
+        console.error("Failed to fetch user data");
       }
     };
 
     fetchUserData();
-  }, []);
+  }, [navigate, setUser]);
 
   const handleLogout = async () => {
     try {
@@ -47,8 +47,8 @@ const UserDashboard = () => {
 
       // Redirect home
       window.location.href = "/";
-    } catch (error) {
-      console.error("Logout failed:", error);
+    } catch {
+      console.error("Logout failed");
     }
   };
 
@@ -107,6 +107,8 @@ const UserDashboard = () => {
       </aside>
 
       <main className="main-content">
+
+        
         <Outlet />
       </main> 
     </div>

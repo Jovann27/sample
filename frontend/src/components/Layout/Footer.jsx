@@ -32,7 +32,7 @@ const Footer = () => {
       } else {
         setStatus(data.error || "Failed to send message.");
       }
-    } catch (err) {
+    } catch {
       setStatus("Error sending message.");
     }
 

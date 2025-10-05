@@ -30,7 +30,6 @@ import ServiceProviders from "./components/Admin/WorkersData";
 import JobFairs from "./components/Admin/JobFairs";
 import ReviewServiceRequest from "./components/Admin/ReviewServiceRequest";
 import UserVerification from "./components/Admin/UserVerification";
-import AdminHome from "./components/Admin/AdminHome";
 
 // User pages
 import UserDashboard from "./components/SkilledUSer/UserDashboard";
@@ -44,7 +43,7 @@ import Help from "./components/SkilledUser/Help";
 import { Toaster } from "react-hot-toast";
 
 const AppContent = () => {
-  const { isAuthorized, tokenType } = useMainContext();
+  const { isAuthorized, tokenType, authLoaded } = useMainContext();
   const location = useLocation();
   const navigate = useNavigate();
   const isAdmin = isAuthorized && tokenType === "admin";
@@ -79,6 +78,9 @@ const AppContent = () => {
     return () => clearTimeout(timer);
   }, [location]);
 
+  // while auth is being restored, don't run routing logic or redirects
+  if (!authLoaded) return <Loading />;
+
   if (loading) return <Loading />;
 
   return (
@@ -111,11 +113,11 @@ const AppContent = () => {
           element={isUser ? <UserDashboard /> : <Navigate to="/login" />} 
         />
         <Route
-          path="/user/requestservice"
+          path="/user/request-service"
           element={isUser ? <ServiceRequest /> : <Navigate to="/login" />}
         />
         <Route
-          path="/user/placeorder"
+          path="/user/place-order"
           element={isUser ? <PlaceOrder /> : <Navigate to="/login" />}
         />
         <Route
@@ -140,7 +142,6 @@ const AppContent = () => {
           path="/admin/dashboard/*"
           element={isAdmin ? <AdminDashboard /> : <Navigate to="/admin/login" />}
         >
-          <Route index element={<AdminHome />} />
           <Route path="service-providers" element={<ServiceProviders />} />
           <Route path="jobfairs" element={<JobFairs />} />
           <Route path="service-requests" element={<ReviewServiceRequest />} />
