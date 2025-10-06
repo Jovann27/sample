@@ -9,10 +9,10 @@ await mongoose.connect(process.env.MONGO_URI);
 
 // Save the admin in the database with profilePic pointing to the filename
 await Admin.create({
-  name: "Admin Jo",
-  profilePic: "jovann.jpg",
+  name: "Admin",
+  profilePic: "",
   email: "skillconnect@gmail.com",
-  password: "tanginamo",
+  password: "",
   role: "Admin"
 });
 
