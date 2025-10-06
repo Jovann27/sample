@@ -1,0 +1,137 @@
+.user-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f7f8fa;
+}
+
+/* === SIDEBAR === */
+.sidebar {
+  width: 260px;
+  background-color: #ffffff;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25px 15px;
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+/* === MAIN CONTENT === */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow: hidden;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* === SIDEBAR PROFILE SECTION === */
+.profile-section {
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #00adb5;
+  margin-bottom: 10px;
+}
+
+.profile-info h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 5px 0;
+  color: #fff;
+}
+
+.profile-info p {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* === SIDEBAR NAVIGATION === */
+.sidebar-nav {
+  width: 100%;
+}
+
+.sidebar-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.sidebar-nav li {
+  width: 100%;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #000000;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.sidebar-nav a:hover {
+  background-color: #00adb5;
+  color: #fff;
+}
+
+.logout-btn {
+  background-color: #ff4b5c;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: auto;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.logout-btn:hover {
+  background-color: #ff6b7a;
+}
+
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 220px;
+  }
+}
+
+@media (max-width: 700px) {
+  .user-dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  
+}

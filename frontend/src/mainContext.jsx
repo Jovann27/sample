@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState, useEffect } from "react";
 
 const Context = createContext();
@@ -10,7 +9,6 @@ export const MainProvider = ({ children }) => {
   const [tokenType, setTokenType] = useState(null);
   const [authLoaded, setAuthLoaded] = useState(false);
 
-  // Restore auth state from localStorage on mount
   useEffect(() => {
     try {
       const storedUser = JSON.parse(localStorage.getItem("user") || "null");
@@ -21,7 +19,6 @@ export const MainProvider = ({ children }) => {
       if (storedIsAuth) {
         setIsAuthorized(true);
         setTokenType(storedTokenType || null);
-        // prefer admin when tokenType says admin, otherwise use user
         if (storedTokenType === "admin") {
           if (storedAdmin) setAdmin(storedAdmin);
           else if (storedUser) setAdmin(storedUser);
@@ -36,7 +33,6 @@ export const MainProvider = ({ children }) => {
     }
   }, []);
 
-  // Persist relevant auth pieces to localStorage whenever they change
   useEffect(() => {
     try {
       if (user) localStorage.setItem("user", JSON.stringify(user));

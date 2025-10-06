@@ -36,9 +36,11 @@ import UserDashboard from "./components/SkilledUSer/UserDashboard";
 import ServiceRequest from "./components/SkilledUSer/ServiceRequest";
 import PlaceOrder from "./components/SkilledUser/PlaceOrder";
 import UserRecords from "./components/SkilledUser/UserRecords";
-import SkilledWorkers from "./components/SkilledUSer/Workers";
 import UserSettings from "./components/SkilledUser/UserSettings";
 import Help from "./components/SkilledUser/Help";
+import SkilledWorkers from "./components/SkilledUSer/SkilledUsersList";
+import UserRequest from "./components/SkilledUSer/UsersRequest";
+import ManageProfile from "./components/SkilledUSer/ManageProfile";
 
 import { Toaster } from "react-hot-toast";
 
@@ -91,6 +93,7 @@ const AppContent = () => {
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/user/skilled-users-list" element={<SkilledWorkers />} />
 
         {/* Auth Routes */}
         <Route path="/login" element={<Login />} />
@@ -108,34 +111,20 @@ const AppContent = () => {
         />
 
         {/* User Routes */}
-        <Route 
-          path="/user/dashboard" 
-          element={isUser ? <UserDashboard /> : <Navigate to="/login" />} 
-        />
         <Route
-          path="/user/request-service"
-          element={isUser ? <ServiceRequest /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/user/place-order"
-          element={isUser ? <PlaceOrder /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/user/records"
-          element={isUser ? <UserRecords /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/user/settings"
-          element={isUser ? <UserSettings /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/user/help"
-          element={isUser ? <Help /> : <Navigate to="/login" />}
-        />
-        <Route 
-        path="/user/skilled-workers" 
-        element={<SkilledWorkers />} 
-        />
+          path="/user"
+          element={isUser ? <UserDashboard /> : <Navigate to="/login" />}
+        >
+          <Route path="dashboard" element={<div>Hello! Welcome to your dashboard!</div>} />
+          <Route path="request-service" element={<ServiceRequest />} />
+          <Route path="place-order" element={<PlaceOrder />} />
+          <Route path="records" element={<UserRecords />} />
+          <Route path="settings" element={<UserSettings />} />
+          <Route path="help" element={<Help />} />
+          <Route path="users-request" element={<UserRequest />} />
+          <Route path="manage-profile" element={<ManageProfile />} />
+        </Route>
+
 
         {/* Admin Routes */}
         <Route

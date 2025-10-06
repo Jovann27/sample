@@ -1,0 +1,84 @@
+.service-requests-container {
+  padding: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.service-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.service-table th,
+.service-table td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: center;
+}
+
+.service-table th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+}
+
+.service-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.service-table tr:hover {
+  background-color: #e9f5ff;
+  transition: background-color 0.3s ease;
+}
+
+/* Status Colors */
+.status.pending {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.status.accepted {
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.status.completed {
+  color: #2196f3;
+  font-weight: bold;
+}
+
+.status.cancelled {
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Buttons */
+.accept-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.accept-btn:hover {
+  background-color: #0056b3;
+}
+
+.accepted-label {
+  color: #4caf50;
+  font-style: italic;
+  font-weight: 600;
+}

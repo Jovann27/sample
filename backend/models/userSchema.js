@@ -18,6 +18,7 @@ const userSchema = new mongoose.Schema({
   certificates: { type: [String], default: [] },
   validId: { type: String, required: true },
   profilePic: { type: String, default: "" },
+  acceptedWork: { type: Boolean, default: false },
   password: { type: String, required: true, minLength: 8, select: false },
   role: { type: String, enum: ["Service Provider", "Community Member"], default: "Community Member" },
   availability: { type: String, enum: ["Available", "Currently Working", "Not Available"], default: "Not Available" },

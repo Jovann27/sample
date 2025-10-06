@@ -26,15 +26,19 @@ const Navbar = () => {
         <div className="menu-wrapper">
           <ul className={!show ? "menu" : "show-menu menu"}>
             {/* Always visible */}
-            <li>
-              <Link to="/">HOME</Link>
-            </li>
+            
             <li>
               <Link to="/about">ABOUT</Link>
+            </li>
+            <li>
+              <Link to="/user/skilled-users-list">SKILLED WORKERS</Link>
             </li>
 
             {!isAuthorized && (
               <>
+                <li>
+                  <Link to="/">HOME</Link>
+                </li>
                 <li>
                   <Link to="/login">LOGIN</Link>
                 </li>
